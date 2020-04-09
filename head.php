@@ -8,6 +8,8 @@
 
         <link rel="shortcut icon" href="images/favicon.ico">
 
+        <link href="plugins/summernote/summernote.css" rel="stylesheet" />
+        
         <!--Bootstrap Css-->
         <link rel="stylesheet" href="css/bootstrap.min.css" />
 
@@ -33,5 +35,13 @@
 
         <!-- Custom style Css -->
         <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="assets/education-css/style.css">
+        <style>
+.img1 {
+  border-radius: 50%;
+}
+</style>
+
+<script id="dsq-count-scr" src="//samim-hossain.disqus.com/count.js" async></script>
     </head>
 

@@ -5,22 +5,45 @@ error_reporting(0);
 if (strlen($_SESSION['login']) == 0) {
     header('location:index.php');
 } else {
-    if (isset($_POST['update'])) {       
+    if (isset($_POST['update'])) {   
+        $name = $_POST['name'];
+        $designation = $_POST['designation'];
         $mobile = $_POST['mobile'];
         $email = $_POST['email'];
         $web = $_POST['web'];
         $address = $_POST['address'];
-        $youtube = $_POST['youtube'];
+        $developer = $_POST['developer'];
         $facebook = $_POST['facebookId'];
         $linkedIn = $_POST['linkedInId'];
         $twitter = $_POST['twitterId'];
         $instragram = $_POST['instragramId'];
+        $github = $_POST['github'];
         $description = $_POST['description'];
+        $cvfile=$_FILES["cv"]["name"];
+        $imgfile=$_FILES["postimage"]["name"];
+// //get the image extension
+//$extension = substr($imgfile,strlen($imgfile)-4,strlen($imgfile));
+//// allowed extensions
+//$allowed_extensions = array(".jpg","jpeg",".png",".gif");
+//// Validation for allowed extensions .in_array() function searches an array for a specific value.
+//if(!in_array($extension,$allowed_extensions))
+//{
+//echo "<script>alert('Invalid format. Only jpg / jpeg/ png /gif format allowed');</script>";
+//}
+//else
+//{
+//rename the image file
+$cvnewfile=($cvfile).$extension;
+$imgnewfile=($imgfile).$extension;
+// Code for move image into directory
+move_uploaded_file($_FILES["postimage"]["tmp_name"],"images/".$cvnewfile);
+
+move_uploaded_file($_FILES["postimage"]["tmp_name"],"images/".$imgnewfile);
         
 
-        $query = mysqli_query($con, "update tblcontact set mobile='$mobile',email='$email',web='$web',address='$address',youtube='$youtube',facebook='$facebook',linkedIn='$linkedIn',twitter='$twitter',instragram='$instragram',description='$description' where id = 1 ");
+        $query = mysqli_query($con, "update tblcontact set name='$name',designation = '$designation', mobile='$mobile',email='$email',web='$web',address='$address',developer='$developer',facebook='$facebook',linkedIn='$linkedIn',twitter='$twitter',instragram='$instragram',description='$description',github = '$github',cv='$cvnewfile',image='$imgnewfile' where id = 1 ");
         if ($query) {
-            $msg = "Contact us  page successfully updated ";
+            $msg = "Contact  page successfully updated ";
         } else {
             $error = "Something went wrong . Please try again.";
         }
@@ -37,7 +60,7 @@ if (strlen($_SESSION['login']) == 0) {
             <!-- App favicon -->
             <link rel="shortcut icon" href="assets/images/favicon.ico">
             <!-- App title -->
-            <title>RoaringBangladesh | Contact us Page</title>
+            <title> Contact us Page</title>
 
             <!-- Summernote css -->
             <link href="../plugins/summernote/summernote.css" rel="stylesheet" />
@@ -144,6 +167,18 @@ while($row=mysqli_fetch_array($query))
                                             <div class="col-md-11">
                                                 <form name="contactus" method="post" class="form-horizontal" enctype="multipart/form-data">
                                                     <div class="form-group m-b-20">
+                                                        <h4 class="col-md-2 header-title control-label"><b>Name</b></h4>
+                                                        <div class="col-md-10">
+                                                            <input type="text" class="form-control" value="<?php echo htmlentities($row['name']);?>" name="name" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group m-b-20">
+                                                        <h4 class="col-md-2 header-title control-label"><b>Your designation</b></h4>
+                                                        <div class="col-md-10">
+                                                            <input type="text" class="form-control" value="<?php echo htmlentities($row['designation']);?>" name="designation" required>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group m-b-20">
                                                         <h4 class="col-md-2 header-title control-label"><b>Mobile</b></h4>
                                                         <div class="col-md-10">
                                                             <input type="text" class="form-control" value="<?php echo htmlentities($row['mobile']);?>" name="mobile" required>
@@ -168,9 +203,9 @@ while($row=mysqli_fetch_array($query))
                                                         </div>
                                                     </div>
                                                     <div class="form-group">                                                       
-                                                        <h4 class="col-md-2 header-title control-label"><b>Youtube Channel Link</b></h4>
+                                                        <h4 class="col-md-2 header-title control-label"><b>Developer Link</b></h4>
                                                         <div class="col-md-10">
-                                                            <input type="text" class="form-control" value="<?php echo htmlentities($row['youtube']);?>" name="youtube" required>
+                                                            <input type="text" class="form-control" value="<?php echo htmlentities($row['developer']);?>" name="developer" required>
                                                         </div>
                                                     </div>
                                                     <div class="form-group">                                                       
@@ -197,15 +232,32 @@ while($row=mysqli_fetch_array($query))
                                                             <input type="text" class="form-control" value="<?php echo htmlentities($row['instragram']);?>" name="instragramId">
                                                         </div>
                                                     </div>
-                                                    
                                                     <div class="form-group">
-                                                        <h4 class="col-md-2 header-title control-label"><b>Describe about us</b></h4>
+                                                        <h4 class="col-md-2 header-title control-label"><b>Git Link</b></h4>
                                                         <div class="col-md-10">
-                                                            <textarea class="form-control" rows="5" name="description"  required><?php echo htmlentities($row['description']);?></textarea><br>
+                                                            <input type="text" class="form-control" value="<?php echo htmlentities($row['github']);?>" name="github">
                                                         </div>
                                                     </div>
-
-
+                                                    <div class="form-group">
+                                                        <h4 class="col-md-2 header-title control-label"><b>CV Link</b></h4>
+                                                        <div class="col-md-10">
+                                                            <input type="file" class="form-control" id="image" name="cv" >
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <h4 class="col-md-2 header-title control-label"><b>Image</b></h4>
+                                                        <div class="col-md-10">
+                                                            <input type="file" class="form-control" id="image" name="postimage" value="test">
+                                                        </div>
+                                                    </div>
+                                                    
+                                                    <div class="form-group">
+                                                        <h4 class="col-md-2 header-title control-label"><b>Describe about me</b></h4>
+                                                        <div class="col-md-10">
+                                                            <textarea class="form-control summernote " rows="5" name="description"  ><?php echo htmlentities($row['description']);?></textarea><br>
+                                                        </div>
+                                                    </div>
+                                                    
                                                     <div class="form-group">
                                                         <label class="col-md-2 control-label">&nbsp;</label>
                                                         <div class="col-md-10">

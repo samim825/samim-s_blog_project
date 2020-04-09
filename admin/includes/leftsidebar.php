@@ -1,4 +1,4 @@
-            <div class="left side-menu">
+<div class="left side-menu">
                 <div class="sidebar-inner slimscrollleft">
 
                     <!--- Sidemenu -->
@@ -52,15 +52,19 @@
                             <li class="has_sub">
                                 <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span> Pages </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
-                                    <li><a href="aboutus.php">About us</a></li>
-                                    <li><a href="contactus.php">Contact us</a></li>
+                                    <li><a href="contactus.php">Contact</a></li>
+                                    <li><a href="education">Education</a></li>
+                                    <li><a href="experience.php">Experience</a></li>
+                                    <li><a href="add-projects.php">Projects</a></li>
+                                    <li><a href="reviews.php">Reviews</a></li>
+                                    <li><a href="skills.php">Skills</a></li>
                                 </ul>
                             </li>
    <li class="has_sub">
-                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span> Comments </span> <span class="menu-arrow"></span></a>
+                                <a href="javascript:void(0);" class="waves-effect"><i class="mdi mdi-format-list-bulleted"></i> <span> Messages </span> <span class="menu-arrow"></span></a>
                                 <ul class="list-unstyled">
-                                  <li><a href="unapprove-comment.php">Waiting for Approval </a></li>
-                                    <li><a href="manage-comments.php">Approved Comments</a></li>
+                                    <li><a href="new-messages.php">New messages</a></li>
+                                    <li><a href="seen-messages.php">Seen messages</a></li>
                                 </ul>
                             </li>   
 

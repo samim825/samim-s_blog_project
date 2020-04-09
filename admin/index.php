@@ -39,7 +39,7 @@ echo "<script>alert('User not registered with us');</script>";
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
         <!-- App title -->
-        <title>Roaring Bangladesh | Admin Panel</title>
+        <title>Samim Hossain | Admin Panel</title>
 
         <!-- App css -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
@@ -69,7 +69,7 @@ echo "<script>alert('User not registered with us');</script>";
                                 <div class="text-center account-logo-box">
                                     <h2 class="text-uppercase">
                                         <a href="#" class="text-success">
-                                            <span>Roaring Bangladesh</span>
+                                            <span>Samim Hossain</span>
                                             <span>Admin Panel</span>
                                         </a>
                                     </h2>

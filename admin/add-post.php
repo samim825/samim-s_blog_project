@@ -13,7 +13,9 @@ if(isset($_POST['submit']))
 {
 $posttitle=$_POST['posttitle'];
 $catid=$_POST['category'];
-$postdetails=$_POST['postdescription'];
+$startingPara=$_POST['startingPara'];
+$quote=$_POST['quote'];
+$endingPara=$_POST['endingPara'];
 $arr = explode(" ",$posttitle);
 $url=implode("-",$arr);
 $imgfile=$_FILES["postimage"]["name"];
@@ -34,7 +36,7 @@ $imgnewfile=($imgfile).$extension;
 move_uploaded_file($_FILES["postimage"]["tmp_name"],"postimages/".$imgnewfile);
 
 $status=1;
-$query=mysqli_query($con,"insert into tblposts(PostTitle,CategoryId,PostDetails,PostUrl,Is_Active,PostImage) values('$posttitle','$catid','$postdetails','$url','$status','$imgnewfile')");
+$query=mysqli_query($con,"insert into tblposts(PostTitle,CategoryId,StartingPara,quote,EndingPara,PostUrl,Is_Active,PostImage) values('$posttitle','$catid','$startingPara','$quote','$endingPara','$url','$status','$imgnewfile')");
 if($query)
 {
 $msg="Post successfully added ";
@@ -57,7 +59,7 @@ $error="Something went wrong . Please try again.";
         <!-- App favicon -->
         <link rel="shortcut icon" href="assets/images/favicon.ico">
         <!-- App title -->
-        <title>RoaringBangladesh | Add Post</title>
+        <title> Add Post</title>
 
         <!-- Summernote css -->
         <link href="../plugins/summernote/summernote.css" rel="stylesheet" />
@@ -176,13 +178,19 @@ while($result=mysqli_fetch_array($ret))
     
          
 
-<div class="row">
-<div class="col-sm-12">
- <div class="card-box">
-<h4 class="m-b-30 m-t-0 header-title"><b>Post Details</b></h4>
-<textarea class="summernote" name="postdescription" required></textarea>
+<div>
+<label for="exampleInputEmail1">Starting Para</label>
+<textarea class="summernote" name="startingPara" required></textarea>
 </div>
+    
+<div>
+<label for="exampleInputEmail1">Important Quote</label>
+<textarea class="form-control" name="quote" rows="5" cols="10" required></textarea>
 </div>
+    
+<div>
+<label for="exampleInputEmail1">Ending Para</label>
+<textarea class="summernote" name="endingPara" required></textarea>
 </div>
 
 

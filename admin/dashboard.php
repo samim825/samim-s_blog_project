@@ -16,7 +16,7 @@ else{
         <meta name="description" content="A fully featured admin theme which can be used to build CRM, CMS, etc.">
         <meta name="author" content="Coderthemes">
         <!-- App title -->
-        <title>RoaringBangladesh| Dashboard</title>
+        <title> Dashboard</title>
 		<link rel="stylesheet" href="../plugins/morris/morris.css">
 
         <!-- App css -->
@@ -66,7 +66,7 @@ else{
                                     <h4 class="page-title">Dashboard</h4>
                                     <ol class="breadcrumb p-0 m-0">
                                         <li>
-                                            <a href="#">Roaring Bangladesh</a>
+                                            <a href="#">Samim Hossain</a>
                                         </li>
                                         <li>
                                             <a href="#">Admin</a>

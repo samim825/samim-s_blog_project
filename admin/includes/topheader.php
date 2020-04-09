@@ -2,7 +2,7 @@
 
                 <!-- LOGO -->
                 <div class="topbar-left">
-                    <a href="dashboard.php" class="logo"><span>Roaring<span>Bangladesh</span></span><i class="mdi mdi-layers"></i></a>
+                    <a href="dashboard.php" class="logo"><span>Samim<span>Hossain</span></span><i class="mdi mdi-layers"></i></a>
                                     
                 </div>
 

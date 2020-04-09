@@ -28,7 +28,7 @@ if($num>0)
 
 if (password_verify($password, $dbpassword)) {
 
- $con=mysqli_query($con,"update tbladmin set AdminPassword='$newhashedpass', updationDate='$currentTime' where AdminUserName='$adminid'");
+ $con=mysqli_query($con,"update tbladmin set AdminPassword='$newhashedpass' where AdminUserName='$adminid'");
 $msg="Password Changed Successfully !!";
 }
 }
@@ -46,7 +46,7 @@ $error="Old Password not match !!";
 <html lang="en">
     <head>
 
-        <title>Roaring Bangladesh | Change Password</title>
+        <title> Change Password</title>
 
         <!-- App css -->
         <link href="assets/css/bootstrap.min.css" rel="stylesheet" type="text/css" />
